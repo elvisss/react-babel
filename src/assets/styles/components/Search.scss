@@ -7,6 +7,10 @@
   flex-direction: column;
   height: 300px;
   border-radius: 0px 0px 40px 40px;
+
+  .isHome {
+    width: 70%;
+  }
 }
 
 .main__title {
@@ -25,7 +29,6 @@
   margin-bottom: 20px;
   outline: none;
   padding: 0px 20px;
-  width: 70%;
 }
 
 ::placeholder {
