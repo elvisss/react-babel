@@ -27,3 +27,17 @@ body {
   box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
 }
+
+.button {
+  background-color: rgba(255, 255, 255, 0.3);
+  border: none;
+  border-radius: 25px;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: 'Muli', sans-serif;
+  height: 50px;
+  letter-spacing: 1px;
+  margin: 10px 0px;
+}
