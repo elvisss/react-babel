@@ -1,25 +1,21 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
+import { connect } from 'react-redux';
 import Search from '../components/Search';
 import Categories from '../components/Categories';
 import Carousel from '../components/Carousel';
 import CarouselItem from '../components/CarouselItem';
-import useInitialState from '../hooks/useInitialState';
 
-const API = 'http://localhost:3000/initialState';
-
-const Home = () => {
-  const initialState = useInitialState(API);
+const Home = ({ myList, trends, originals }) => {
   return (
     <>
       <Search />
 
-      {initialState.mylist.length && (
+      {myList.length > 0 && (
         <Categories title='Mi Lista'>
           <Carousel>
-            {initialState.trends?.map((item) => {
-              const { id, ...rest } = item;
-              return <CarouselItem key={id} {...rest} />;
+            {myList?.map((item) => {
+              return <CarouselItem key={item.id} {...item} isList />;
             })}
           </Carousel>
         </Categories>
@@ -27,18 +23,16 @@ const Home = () => {
 
       <Categories title='Tendencias'>
         <Carousel>
-          {initialState.trends.map((item) => {
-            const { id, ...rest } = item;
-            return <CarouselItem key={id} {...rest} />;
+          {trends.map((item) => {
+            return <CarouselItem key={item.id} {...item} />;
           })}
         </Carousel>
       </Categories>
 
       <Categories title='Originales de Platzi Video'>
         <Carousel>
-          {initialState.originals.map((item) => {
-            const { id, ...rest } = item;
-            return <CarouselItem key={id} {...rest} />;
+          {originals.map((item) => {
+            return <CarouselItem key={item.id} {...item} />;
           })}
         </Carousel>
       </Categories>
@@ -46,4 +40,14 @@ const Home = () => {
   );
 };
 
-export default Home;
+const mapStateToProps = (state) => {
+  const { myList, trends, originals } = state;
+  return {
+    myList,
+    trends,
+    originals,
+  };
+};
+
+// export default Home;
+export default connect(mapStateToProps, null)(Home);
