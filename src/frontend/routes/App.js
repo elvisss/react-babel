@@ -1,10 +1,10 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import Layout from '../components/Layout';
 import Home from '../containers/Home';
 import Login from '../containers/Login';
 import Register from '../containers/Register';
 import NotFound from '../containers/NotFound';
-import Layout from '../components/Layout';
 import Player from '../containers/Player';
 
 const App = () => (

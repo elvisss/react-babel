@@ -5,7 +5,8 @@ import { getVideoSource } from '../actions';
 import '../assets/styles/components/Player.scss';
 
 const Player = (props) => {
-  const { id } = props.match.params;
+  const { match } = props;
+  const { id } = match.params;
   const { playing } = props;
   const hasPlaying = Object.keys(playing).length > 0;
 
