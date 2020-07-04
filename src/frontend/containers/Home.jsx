@@ -15,7 +15,7 @@ const Home = ({ myList, trends, originals }) => {
         <Categories title='Mi Lista'>
           <Carousel>
             {myList?.map((item) => {
-              return <CarouselItem key={item.id} {...item} isList />;
+              return <CarouselItem key={item._id} {...item} isList />;
             })}
           </Carousel>
         </Categories>
@@ -24,7 +24,7 @@ const Home = ({ myList, trends, originals }) => {
       <Categories title='Tendencias'>
         <Carousel>
           {trends.map((item) => {
-            return <CarouselItem key={item.id} {...item} />;
+            return <CarouselItem key={item._id} {...item} />;
           })}
         </Carousel>
       </Categories>
@@ -32,7 +32,7 @@ const Home = ({ myList, trends, originals }) => {
       <Categories title='Originales de Platzi Video'>
         <Carousel>
           {originals.map((item) => {
-            return <CarouselItem key={item.id} {...item} />;
+            return <CarouselItem key={item._id} {...item} />;
           })}
         </Carousel>
       </Categories>

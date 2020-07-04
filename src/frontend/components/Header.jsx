@@ -13,7 +13,11 @@ const Header = (props) => {
 
   const handleLogout = (event) => {
     event.preventDefault();
+    document.cookie = 'email=';
+    document.cookie = 'name=';
+    document.cookie = 'id=';
     props.logoutRequest({});
+    window.location.href = '/login';
   };
 
   return (

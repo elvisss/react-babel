@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { registerRequest } from '../actions';
+import { registerUser } from '../actions';
 import '../assets/styles/components/Register.scss';
 
 const Register = (props) => {
   const [formRegister, setValues] = useState({
-    name: '',
     email: '',
+    id: '',
+    name: '',
     password: '',
   });
 
@@ -21,9 +23,7 @@ const Register = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(formRegister);
-    props.registerRequest(formRegister);
-    props.history.push('/');
+    props.registerUser(formRegister, '/login');
   };
 
   return (
@@ -63,7 +63,11 @@ const Register = (props) => {
 };
 
 const mapDispatchToProps = {
-  registerRequest,
+  registerUser,
+};
+
+Register.propTypes = {
+  registerUser: PropTypes.func,
 };
 
 export default connect(null, mapDispatchToProps)(Register);
