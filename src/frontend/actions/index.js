@@ -1,15 +1,5 @@
 import axios from 'axios';
 
-export const setFavoriteRequest = (payload) => ({
-  type: 'SET_FAVORITE',
-  payload,
-});
-
-export const deleteFavoriteRequest = (payload) => ({
-  type: 'DELETE_FAVORITE',
-  payload,
-});
-
 export const loginRequest = (payload) => ({
   type: 'LOGIN_REQUEST',
   payload,
@@ -70,6 +60,11 @@ export const loginUser = ({ email, password }, redirectUrl) => {
   };
 };
 
+export const setFavoriteRequest = (payload) => ({
+  type: 'SET_FAVORITE',
+  payload,
+});
+
 export const setFavorite = ({
   _id,
   cover,
@@ -101,6 +96,11 @@ export const setFavorite = ({
       .catch((err) => dispatch(setError(err)));
   };
 };
+
+export const deleteFavoriteRequest = (payload) => ({
+  type: 'DELETE_FAVORITE',
+  payload,
+});
 
 export const deleteFavorite = (userMovieId) => {
   return (dispatch) => {

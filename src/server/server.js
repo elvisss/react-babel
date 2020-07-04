@@ -19,6 +19,7 @@ import serverRoutes from '../frontend/routes/serverRoutes';
 import reducer from '../frontend/reducers';
 import Layout from '../frontend/components/Layout';
 import getManifest from './getManifest';
+import { logErrors, wrapErrors, errorHandler } from './utils/middlewares/errorHandlers';
 
 dotenv.config();
 
@@ -246,6 +247,10 @@ app.delete('/user-movies/:userMovieId', async (req, res, next) => {
 });
 
 app.get('*', renderApp);
+
+app.use(logErrors);
+app.use(wrapErrors);
+app.use(errorHandler);
 
 app.listen(PORT, (err) => {
   if (err) throw new Error(err);
